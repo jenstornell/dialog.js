@@ -17,16 +17,7 @@ class Dialog {
     this.$$('[data-dialog-open]').forEach(el => {
       el.addEventListener('click', (e) => {
         let selector = e.target.dataset.dialogOpen;
-        let dialog = this.$(selector);
-        let params = {
-          dialog: dialog,
-          trigger: e.target,
-        };
-        dialog.showModal();
-
-        document.body.dataset.dialogOpen = '';
-
-        this.o.callbacks.open(params);
+        this.open(selector, e.target);
       });
     });
   }
@@ -35,16 +26,7 @@ class Dialog {
     this.$$('[data-dialog-close]').forEach(el => {
       el.addEventListener('click', (e) => {
         let selector = e.target.dataset.dialogClose;
-        let dialog = this.$(selector);
-        let params = {
-          dialog: dialog,
-          trigger: e.target,
-        };
-        dialog.close();
-
-        delete document.body.dataset.dialogOpen;
-
-        this.o.callbacks.close(params);
+        this.close(selector, e.target);
       });
     });
   }
@@ -65,6 +47,34 @@ class Dialog {
         }
       });
     });
+  }
+
+
+  open(selector, trigger = null) {
+    let dialog = this.$(selector);
+    let params = {
+      dialog: dialog,
+      trigger: trigger,
+    };
+    dialog.showModal();
+
+    document.body.dataset.dialogOpen = '';
+
+    this.o.callbacks.open(params);
+  }
+
+
+  close(selector, trigger = null) {
+    let dialog = this.$(selector);
+    let params = {
+      dialog: dialog,
+      trigger: trigger,
+    };
+    dialog.close();
+
+    delete document.body.dataset.dialogOpen;
+
+    this.o.callbacks.close(params);
   }
 
   $(selector) {
