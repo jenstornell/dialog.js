@@ -52,7 +52,7 @@ class Dialog {
   onClickBackdrop() {
     this.$$('dialog').forEach(el => {
       el.addEventListener('click', (e) => {
-        if(!e.target.closest('.dialog-wrap')) {
+        if(e.target.nodeName == 'DIALOG') {
           let params = {
             dialog: e.target,
             trigger: e.target,

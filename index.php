@@ -37,7 +37,7 @@ let dialog = new Dialog();
 dialog.init({
   callbacks: {
     close: function(params){
-      console.log(params);
+      //console.log(params);
     },
     open: function(params) {
       console.log(params);
