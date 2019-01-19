@@ -41,8 +41,6 @@ class Dialog {
           }
           e.target.close();
 
-          delete document.body.dataset.dialogOpen;
-
           this.o.callbacks.close(params);
         }
       });
@@ -58,8 +56,6 @@ class Dialog {
     };
     dialog.showModal();
 
-    document.body.dataset.dialogOpen = '';
-
     this.o.callbacks.open(params);
   }
 
@@ -72,8 +68,6 @@ class Dialog {
     };
     dialog.close();
 
-    delete document.body.dataset.dialogOpen;
-
     this.o.callbacks.close(params);
   }
 
@@ -85,8 +79,3 @@ class Dialog {
     return document.querySelectorAll(selector);
   }
 }
-
-/*
-DOCS
-Screenshot
-*/

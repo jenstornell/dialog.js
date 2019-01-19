@@ -2,6 +2,8 @@
 
 A tiny javascript to simplify to use of `<dialog>` element.
 
+**Be aware! Dialog has ![limited browser support](https://caniuse.com/#feat=dialog)**
+
 ![Screenshot](screenshot.png)
 
 ## In short
@@ -12,7 +14,6 @@ A tiny javascript to simplify to use of `<dialog>` element.
 - Callback support
 - Super simple setup
 - Backdrop can be clicked to close
-- A data attribute is added to body on open
 
 ## Setup
 
